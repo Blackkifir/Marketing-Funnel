@@ -6,7 +6,7 @@
 }
 
 .flexBlock {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   height: 448px;
 
   &__textBlock {
@@ -15,7 +15,7 @@
 
   &__title {
     @include subTitle();
-    margin-bottom: 24px;
+    margin: 25px 0px 25px 0px;
     width: 309px;
     height: 96px;
     text-align: center;
@@ -34,17 +34,7 @@
   }
 
   &__inputEmail {
-    border: none;
-    border-radius: 10px;
-    padding: 28px 12px 8px 12px;
-    width: 342px;
-    background-color: #F1F5FB;
-    font-family: $fontInter;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    color: $black;
-    outline: none;
+    @include inputEmail();
 
     &:focus {
       border: 2px solid $darkBlue;
@@ -52,17 +42,7 @@
   }
 
   &__invalidInput {
-    border: none;
-    border-radius: 10px;
-    padding: 28px 12px 8px 12px;
-    width: 342px;
-    background-color: #F1F5FB;
-    font-family: $fontInter;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    color: $black;
-    outline: none;
+    @include inputEmail();
 
     &:focus {
       border: 2px solid #FF0000;
@@ -85,19 +65,12 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 24px;
-    color: red;
+    color: #FF0000;
   }
 }
 
 .btnContinue {
-  border: none;
-  border-radius: 10px;
-  width: 342px;
-  height: 56px;
-  background-color: $blue;
-  font-family: $fontJakarta;
-  cursor: pointer;
-  color: $white;
+  @include continueBtn();
 
   &:disabled {
     border: 2px solid #E4E7EB;

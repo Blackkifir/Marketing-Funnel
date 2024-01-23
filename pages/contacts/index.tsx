@@ -12,9 +12,13 @@ export const metadata = {
 export default function Contacts() {
   const [inputValue, setInputValue] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(true);
   const router = useRouter();
 
-  useEffect(() => setIsValidEmail(true), []);
+  useEffect(() => {
+    setIsValidEmail(true);
+    setIsDisabled(true);
+  }, []);
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
@@ -22,6 +26,7 @@ export default function Contacts() {
     // Проверяем, соответствует ли введенное значение формату email
     const isValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
     setIsValidEmail(isValid);
+    setIsDisabled(!isValid);
   };
 
   const onClickSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -34,6 +39,9 @@ export default function Contacts() {
 
   const onSubmitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    router.push('/progress');
+    console.log(inputValue);
   };
 
   return (
@@ -53,11 +61,11 @@ export default function Contacts() {
                 <div className={styles.flexBlock__textWidthInput}>
                   <p className={styles.flexBlock__topInputText}>Email</p>
                   <input
+                    name="email"
                     onChange={onChangeInput}
                     className={`${styles.flexBlock__inputEmail} 
                     ${!isValidEmail ? styles.flexBlock__invalidInput : ''}`}
                     type="email"
-                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     title="Enter a valid email address"
                     required
                   />
@@ -71,7 +79,7 @@ export default function Contacts() {
             </div>
             <button
               type="submit"
-              disabled={!isValidEmail}
+              disabled={isDisabled}
               onClick={onClickSubmit}
               className={styles.btnContinue}
             >
