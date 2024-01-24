@@ -17,11 +17,18 @@ export default function Progress() {
     router.push('/marketingCenter');
   };
 
+  const onClickBackContacts = () => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    router.push('/contacts');
+  };
+
   return (
     <div>
       <PageMetadata title={metadata.title} />
       <div>
-        <Header />
+        <Header
+          onClickBackContacts={onClickBackContacts}
+        />
         <main className={styles.main}>
           <div className={styles.progressContainer}>
             <div className={styles.flexBlock}>

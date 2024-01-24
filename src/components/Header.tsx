@@ -1,11 +1,17 @@
+/* eslint-disable react/require-default-props */
 import Image from 'next/image';
 import styles from './scss/Header.module.scss';
 
-export default function Header() {
+interface IPropsClicks {
+  onClickBackProgress?: () => void;
+  onClickBackContacts?: () => void;
+}
+
+export default function Header({ onClickBackProgress, onClickBackContacts }: IPropsClicks) {
   return (
     <header className={styles.header}>
       <div className={styles.header__container}>
-        <button type="button" className={styles.header__backBtn}>
+        <button onClick={onClickBackProgress || onClickBackContacts} type="button" className={styles.header__backBtn}>
           <Image src="/back.svg" alt="back-Img" width={25} height={25} />
         </button>
         <h1 className={styles.header__title}>App</h1>

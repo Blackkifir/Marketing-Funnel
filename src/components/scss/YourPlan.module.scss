@@ -2,6 +2,7 @@
 
 .planContainer {
   @include displayCenter();
+  padding: 25px;
   margin-bottom: 50px;
 }
 

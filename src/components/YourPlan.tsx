@@ -1,35 +1,53 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './scss/YourPlan.module.scss';
 
 export default function YourPlan() {
   const [isChecked, setIsChecked] = useState<boolean>(false);
-  const onSubmitPlan = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const [isPlan, setIsPlan] = useState<string[]>([]);
+
+  const onChangeCheckBox = (plan: string) => {
+    if (plan === '3-Month Plan') {
+      setIsChecked(!isChecked);
+    }
+
+    if (isPlan.includes(plan)) {
+      setIsPlan(isPlan.filter((selectPlan) => selectPlan !== plan));
+    } else {
+      setIsPlan([...isPlan, plan]);
+    }
   };
 
-  const onChangeIsChecked = () => {
-    setIsChecked(!isChecked);
+  const onClickSumbit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log(isPlan);
   };
 
   return (
     <section className={styles.planContainer}>
       <div className={styles.flexBlock}>
         <h2 className={styles.flexBlock__title}>Choose your plan</h2>
-        <form onSubmit={onSubmitPlan}>
+        <form>
           <div className={styles.yourPlan}>
-            <input name="plan-1" type="checkbox" className={styles.yourPlan__check} />
+            <input
+              name="plan-1"
+              onChange={() => onChangeCheckBox('1-Month Plan')}
+              type="checkbox"
+              className={styles.yourPlan__check}
+            />
             <p className={styles.yourPlan__text}>1-Month Plan</p>
             <div className={styles.yourPlan__price}>
               <span className={styles.yourPlan__dollars}>$</span>
               <p className={styles.yourPlan__numb}>10</p>
             </div>
           </div>
-          <div className={!isChecked ? styles.yourPlanPopular__mostPopular : styles.yourPlanPopular__mostPopularActive}>
+          <div className={!isChecked
+            ? styles.yourPlanPopular__mostPopular : styles.yourPlanPopular__mostPopularActive}
+          >
             <p className={styles.yourPlanPopular__mostPopular__text}> Most Popular</p>
             <div className={styles.yourPlanPopular}>
               <input
                 name="plan-2"
-                onChange={onChangeIsChecked}
+                onChange={() => onChangeCheckBox('3-Month Plan')}
                 checked={isChecked}
                 type="checkbox"
                 className={styles.yourPlanPopular__checkPopular}
@@ -42,14 +60,25 @@ export default function YourPlan() {
             </div>
           </div>
           <div className={styles.yourPlan}>
-            <input name="plan-3" type="checkbox" className={styles.yourPlan__check} />
+            <input
+              name="plan-3"
+              onChange={() => onChangeCheckBox('6-Month Plan')}
+              type="checkbox"
+              className={styles.yourPlan__check}
+            />
             <p className={styles.yourPlan__text}>6-Month Plan</p>
             <div className={styles.yourPlan__price}>
               <span className={styles.yourPlan__dollars}>$</span>
               <p className={styles.yourPlan__numb}>60</p>
             </div>
           </div>
-          <button type="submit" className={styles.yourPlanBtn}>Get my plan</button>
+          <button
+            onClick={onClickSumbit}
+            type="submit"
+            className={styles.yourPlanBtn}
+          >
+            Get my plan
+          </button>
         </form>
         <p className={styles.yourPlanDescription}>
           You are enrolling in a 3-monthly subscription to

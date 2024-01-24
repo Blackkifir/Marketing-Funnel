@@ -2,6 +2,7 @@
 
 .redirectContainer {
   @include displayCenter();
+  padding-top: 25px;
 }
 
 .flexBlock {
@@ -28,7 +29,7 @@
 
   &__percentage {
     position: absolute;
-    top: 36%;
+    top: 39%;
     line-height: 56px;
     font-family: $fontLora;
     font-weight: 600;
