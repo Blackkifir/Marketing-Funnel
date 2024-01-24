@@ -1,0 +1,118 @@
+@import '../../scss/variables';
+
+.yourPlan {
+  @include yourPlan();
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 10px;
+
+  &__check {
+    @include checkBox();
+    position: relative;
+
+    &:checked::before {
+      content: '\2713';
+      position: absolute;
+      top: -5;
+      left: 0px;
+      right: -5px;
+      bottom: 0px;
+      transition: all .3s;
+      display: block;
+      text-align: center;
+      font-weight: 800;
+      font-size: 18px;
+      line-height: 20px;
+      color: $darkBlue;
+    }
+  }
+
+  &__text {
+    margin: 0px 12px 0px 12px;
+    width: 170px;
+    font-family: $fontLora;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  &__price {
+    display: flex;
+    padding: 8px 12px 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #E1E9F4;
+  }
+
+  &__dollars {
+    margin-right: 4px;
+    font-family: $fontJakarta;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  &__numb {
+    font-family: $fontLora;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 40px;
+  }
+}
+
+.yourPlanPopular {
+ @include yourPlan();
+  border: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  &__mostPopular {
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: $darkBlue;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+
+    &__text {
+      padding: 4px 12px 4px 12px;
+      text-transform: uppercase;
+      font-family: $fontJakarta;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 16px;
+      text-align: center;
+      color: $white;
+    }
+  }
+
+  &__mostPopularActive {
+    margin-bottom: 8px;
+    border: 2px solid $blue;
+    border-radius: 10px;
+    background-color: $blue;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  &__checkPopular {
+    @include checkBox();
+    position: relative;
+    
+    &:checked::before {
+      content: '';
+      padding: 5px;
+      width: 7px;
+      height: 7px;
+      display: block;
+      transition: all 0.3s;
+      background-color: $blue;
+      border-radius: 50%;
+    }
+  }
+}
+
+.yourPlanBtn {
+  @include continueBtn();
+  margin: 8px 0px 16px 0px;
+}
+
