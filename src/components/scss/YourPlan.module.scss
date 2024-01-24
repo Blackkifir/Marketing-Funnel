@@ -1,5 +1,22 @@
 @import '../../scss/variables';
 
+.planContainer {
+  @include displayCenter();
+  margin-bottom: 50px;
+}
+
+.flexBlock {
+  @include displayCenter();
+  flex-direction: column;
+  max-width: 342px;
+
+  &__title {
+    @include subTitle();
+    margin-bottom: 16px;
+    color: $black;
+  }
+}
+
 .yourPlan {
   @include yourPlan();
   margin-bottom: 8px;
@@ -116,3 +133,17 @@
   margin: 8px 0px 16px 0px;
 }
 
+.yourPlanDescription {
+  font-family: $fontJakarta;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  color: $greyText;
+
+  .yourPlanLink {
+    font-weight: 500;
+    text-decoration: none;
+    color: $black;
+  }
+}
