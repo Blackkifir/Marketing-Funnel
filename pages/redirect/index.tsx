@@ -17,7 +17,7 @@ export default function Redirect() {
       router.push('/contacts');
     };
 
-    const timeOutId = setTimeout(() => redirectToContactsPage(), 200000);
+    const timeOutId = setTimeout(() => redirectToContactsPage(), 2000);
     return () => clearTimeout(timeOutId);
   }, [router]);
 
