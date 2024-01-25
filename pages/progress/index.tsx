@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import PageMetadata from '../assets/PageMetadata';
 import styles from '../scss/progress.module.scss';
+import chartImg from '../../src/components/icons/chart.svg';
 
 export const metadata = {
   title: 'Progress',
@@ -42,7 +43,7 @@ export default function Progress() {
                 </div>
                 <Image
                   className={styles.flexBlock__chart__vector}
-                  src="/chart.svg"
+                  src={chartImg as string}
                   alt="chart-img"
                   width={276}
                   height={240}

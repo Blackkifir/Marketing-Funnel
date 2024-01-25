@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './scss/Features.module.scss';
+import featuresImg from './icons/featuresIcon.svg';
 
 export default function Features() {
   return (
@@ -9,7 +10,7 @@ export default function Features() {
         <div className={styles.featuresFlexBlock}>
           <div className={styles.featuresFlexBlock__item}>
             <Image
-              src="/featuresIcon.svg"
+              src={featuresImg as string}
               alt="features-icon"
               width={14}
               height={14}
@@ -21,7 +22,7 @@ export default function Features() {
           </div>
           <div className={styles.featuresFlexBlock__item}>
             <Image
-              src="/featuresIcon.svg"
+              src={featuresImg as string}
               alt="features-icon"
               width={14}
               height={14}
@@ -33,7 +34,7 @@ export default function Features() {
           </div>
           <div className={styles.featuresFlexBlock__item}>
             <Image
-              src="/featuresIcon.svg"
+              src={featuresImg as string}
               alt="features-icon"
               width={14}
               height={14}
@@ -45,7 +46,7 @@ export default function Features() {
           </div>
           <div className={styles.featuresFlexBlock__item}>
             <Image
-              src="/featuresIcon.svg"
+              src={featuresImg as string}
               alt="features-icon"
               width={14}
               height={14}
@@ -57,7 +58,7 @@ export default function Features() {
           </div>
           <div className={styles.featuresFlexBlock__item}>
             <Image
-              src="/featuresIcon.svg"
+              src={featuresImg as string}
               alt="features-icon"
               width={14}
               height={14}
