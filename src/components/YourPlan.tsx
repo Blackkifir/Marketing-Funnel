@@ -2,18 +2,16 @@ import React, { useState } from 'react';
 import styles from './scss/YourPlan.module.scss';
 
 export default function YourPlan() {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [isPlan, setIsPlan] = useState<string[]>([]);
 
   const onChangeCheckBox = (plan: string) => {
-    if (plan === '3-Month Plan') {
-      setIsChecked(!isChecked);
-    }
-
-    if (isPlan.includes(plan)) {
-      setIsPlan(isPlan.filter((selectPlan) => selectPlan !== plan));
-    } else {
-      setIsPlan([...isPlan, plan]);
+    if (plan.includes('Month') && selectedPlan !== plan) {
+      setSelectedPlan(plan);
+      setIsPlan([plan]);
+    } else if (!plan.includes('Month')) {
+      setSelectedPlan(null);
+      setIsPlan([plan]);
     }
   };
 
@@ -31,6 +29,7 @@ export default function YourPlan() {
             <input
               name="plan-1"
               onChange={() => onChangeCheckBox('1-Month Plan')}
+              checked={selectedPlan === '1-Month Plan'}
               type="checkbox"
               className={styles.yourPlan__check}
             />
@@ -40,15 +39,15 @@ export default function YourPlan() {
               <p className={styles.yourPlan__numb}>10</p>
             </div>
           </div>
-          <div className={!isChecked
-            ? styles.yourPlanPopular__mostPopular : styles.yourPlanPopular__mostPopularActive}
+          <div className={selectedPlan === '3-Month Plan'
+            ? styles.yourPlanPopular__mostPopularActive : styles.yourPlanPopular__mostPopular}
           >
-            <p className={styles.yourPlanPopular__mostPopular__text}> Most Popular</p>
+            <p className={styles.yourPlanPopular__mostPopular__text}>Most Popular</p>
             <div className={styles.yourPlanPopular}>
               <input
                 name="plan-2"
                 onChange={() => onChangeCheckBox('3-Month Plan')}
-                checked={isChecked}
+                checked={selectedPlan === '3-Month Plan'}
                 type="checkbox"
                 className={styles.yourPlanPopular__checkPopular}
               />
@@ -63,6 +62,7 @@ export default function YourPlan() {
             <input
               name="plan-3"
               onChange={() => onChangeCheckBox('6-Month Plan')}
+              checked={selectedPlan === '6-Month Plan'}
               type="checkbox"
               className={styles.yourPlan__check}
             />

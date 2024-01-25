@@ -19,6 +19,9 @@
 
   &__loader {
     position: relative;
+  }
+
+  &__progress {
     width: 180px;
     height: 180px;
     border-radius: 50%;
@@ -29,7 +32,10 @@
 
   &__percentage {
     position: absolute;
-    top: 39%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     line-height: 56px;
     font-family: $fontLora;
     font-weight: 600;

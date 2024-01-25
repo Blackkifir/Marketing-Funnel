@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './scss/Rating.module.scss';
+import ratingImg from './icons/rating.svg';
 
 export default function Rating() {
   return (
@@ -10,7 +11,7 @@ export default function Rating() {
           <div className={styles.ratingFlexBlock__topItem}>
             <p className={styles.ratingFlexBlock__name}>Guadalupe Hudson</p>
             <Image
-              src="/rating.svg"
+              src={ratingImg as string}
               alt="rating-stars"
               width={60}
               height={20}
@@ -27,7 +28,7 @@ export default function Rating() {
           <div className={styles.ratingFlexBlock__topItem}>
             <p className={styles.ratingFlexBlock__name}>Bobby Wintheiser</p>
             <Image
-              src="/rating.svg"
+              src={ratingImg as string}
               alt="rating-stars"
               width={60}
               height={20}
@@ -44,7 +45,7 @@ export default function Rating() {
           <div className={styles.ratingFlexBlock__topItem}>
             <p className={styles.ratingFlexBlock__name}>Colleen Beahan</p>
             <Image
-              src="/rating.svg"
+              src={ratingImg as string}
               alt="rating-stars"
               width={60}
               height={20}

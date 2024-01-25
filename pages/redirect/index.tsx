@@ -17,7 +17,7 @@ export default function Redirect() {
       router.push('/contacts');
     };
 
-    const timeOutId = setTimeout(() => redirectToContactsPage(), 2000);
+    const timeOutId = setTimeout(() => redirectToContactsPage(), 200000);
     return () => clearTimeout(timeOutId);
   }, [router]);
 
@@ -32,8 +32,8 @@ export default function Redirect() {
               <h2 className={styles.flexBlock__title}>We are crafting your spiritual growth plan</h2>
               <div className={styles.flexBlock__loader}>
                 <div className={styles.flexBlock__progress} />
+                <span className={styles.flexBlock__percentage}>87%</span>
               </div>
-              <span className={styles.flexBlock__percentage}>87%</span>
               <ul className={styles.flexBlock__list}>
                 <li className={styles.flexBlock__list__item}>
                   Aligning with your goals
